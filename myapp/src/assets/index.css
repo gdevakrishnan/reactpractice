@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: cornsilk;
+    overflow-x: hidden;
+}
+
+section {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 50px;
+}
