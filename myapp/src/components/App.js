@@ -1,26 +1,42 @@
 import { Component } from "react"
-
-let Madegoal = () => {
-    return (<h1>Goal</h1>)
-}
-
-let Missedgoal = () => {
-    return (<h1>Not a Goal</h1>)
-}
+import Table from "./Table";
 
 class App extends Component {
-    render() {
-        const isGoal = this.props.isGoal;
+    state = {
+        charachters: [
+            {
+                Name: "Deva Krsihnan",
+                Rollno: "22eca18"
+            },
+            {
+                Name: "John Wesly",
+                Rollno: "22eca49"
+            },
+            {
+                Name: "Mithun",
+                Rollno: "22eca55"
+            },
+            {
+                Name: "Prathap",
+                Rollno: "22eca34"
+            }
+        ]
+    }
 
-        if (isGoal) {
-            return (
-                <Madegoal />
-            )
-        } else {
-            return (
-                <Missedgoal />
-            )
-        }
+    render() {
+        const { charachters } = this.state;
+
+        let removeCharachter = (i) => {
+            const filteredCharachters = charachters.filter((charachters, index) => {
+                return (i !== index);
+            });
+
+            this.setState({charachters: filteredCharachters});
+        } 
+
+        return (
+            <Table removeCharachter = { removeCharachter } charachtersData = { charachters }/>
+        )
     }
 }
 
