@@ -1,14 +1,26 @@
 import { Component } from "react"
 
+let Madegoal = () => {
+    return (<h1>Goal</h1>)
+}
+
+let Missedgoal = () => {
+    return (<h1>Not a Goal</h1>)
+}
+
 class App extends Component {
     render() {
-        let myFunction = (Name, event) => {
-            alert (Name + event.type);
-        }
+        const isGoal = this.props.isGoal;
 
-        return (
-            <button onClick={ (event) => myFunction("Deva Krishnan", event) }>button</button>
-        )
+        if (isGoal) {
+            return (
+                <Madegoal />
+            )
+        } else {
+            return (
+                <Missedgoal />
+            )
+        }
     }
 }
 
