@@ -1,14 +1,29 @@
 import { Component } from "react";
-import Home from "./Hero";
-import Nav from "./Nav"
+import Table from './Table'
 
 class App extends Component {
     render() {
+        const charachters = [
+            {
+                Name: "Deva Krishnan",
+                Rollno: "22eca18"
+            },
+            {
+                Name: "John Wesly",
+                Rollno: "22eca49"
+            },
+            {
+                Name: "Prathap",
+                Rollno: "22eca23"
+            },
+            {
+                Name: "Arumugam",
+                Rollno: "22eca98"
+            }
+        ];
+
         return (
-            <div className = "main">
-                <Nav />
-                <Home />
-            </div>
+            <Table charachtersData = { charachters }/>
         )
     }
 }
