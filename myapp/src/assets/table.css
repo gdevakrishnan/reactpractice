@@ -1,0 +1,18 @@
+.main .table table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+.main .table table thead tr td, .main .table table tbody tr td {
+    border-bottom: 1px solid #000000;
+    padding: 20px;
+}
+
+.main .table table tbody tr button {
+    padding: 8px 10px;
+    background-color: blue;
+    color: #fcfcfc;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
