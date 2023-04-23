@@ -16,17 +16,17 @@ let Tdescription = (props) => {
     const { charachtersData, removeCharachter } = props
     const charachterTableTemplate = charachtersData.map((charachter, index) => {
         return (
-            <tr key = { index }>
+            <tr key={index}>
                 <td>{charachter.Name}</td>
-                <td>{ charachter.Rollno }</td>
-                <td><button onClick = { () => removeCharachter(index) }>Delete</button></td>
+                <td>{charachter.Rollno}</td>
+                <td><button onClick={() => removeCharachter(index)}>Delete</button></td>
             </tr>
         )
     })
 
     return (
         <tbody>
-            { charachterTableTemplate }
+            {charachterTableTemplate}
         </tbody>
     )
 }
@@ -36,10 +36,12 @@ class Table extends Component {
         const { charachtersData, removeCharachter } = this.props;
 
         return (
-            <table>
-                <Theader />
-                <Tdescription removeCharachter = { removeCharachter } charachtersData = { charachtersData }/>
-            </table>
+            <section>
+                <table>
+                    <Theader />
+                    <Tdescription removeCharachter={removeCharachter} charachtersData={charachtersData} />
+                </table>
+            </section>
         )
     }
 }
