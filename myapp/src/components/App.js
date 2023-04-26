@@ -1,34 +1,24 @@
-import React, { createContext, useContext, useState } from "react";
-import External from "./External";
+import React, { useReducer } from "react";
 
-const userGlobal = createContext();
-
-export default function App () {
-  const [user] = useState("React");
-  return (
-    <userGlobal.Provider value={user}>
-      <h1>Parent Component {user}</h1>
-      <Child1 />
-      <External userGlobal = {userGlobal}/>
-    </userGlobal.Provider>
-  );
+function Counter(state, action) {
+  switch (action.type) {
+    case "increment":
+      return state + 1;
+    case "decrement":
+      return state - 1;
+    default:
+      alert("Invalid action");
+  }
 }
 
-const Child1 = () => {
-  const user1 = useContext(userGlobal);
+export default function App() {
+  const [Count, dispatch] = useReducer(Counter, 0);
+  
   return (
     <>
-      <h1>Child 1 Component {user1}</h1>
-      <Child2 />
-    </>
-  );
-}
-
-const Child2 = () => {
-  const user = useContext(userGlobal)
-  return (
-    <>
-      <h1>Child 2 Component {user}</h1>
+      <h1>The Counter is: {Count}</h1>
+      <button onClick={() => dispatch({type: "increment"})}>increment</button>
+      <button onClick={() => dispatch({type: "decrement"})}>decrement</button>
     </>
   );
 }
