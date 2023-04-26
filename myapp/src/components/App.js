@@ -1,36 +1,34 @@
-import { useState } from "react";
+import React, { createContext, useContext, useState } from "react";
+import External from "./External";
 
-export default function App() {
-  const [Count, setCount] = useState(0);
-  const [Message, setMessage] = useState("");
-  const Increment = () => {
-    if (Count < 10) {
-      setCount(Count + 1);
-    } else {
-      setMessage("The maximum count is 10")
-      setTimeout(() => {
-        setMessage("")
-      }, 3200);
-    }
-  }
+const userGlobal = createContext();
 
-  const Decrement = () => {
-    if (Count > 0) {
-      setCount(Count - 1);
-    } else {
-      setMessage("The minimum count is 0")
-      setTimeout(() => {
-        setMessage("")
-      }, 3200);
-    }
-  }
+export default function App () {
+  const [user] = useState("React");
+  return (
+    <userGlobal.Provider value={user}>
+      <h1>Parent Component {user}</h1>
+      <Child1 />
+      <External userGlobal = {userGlobal}/>
+    </userGlobal.Provider>
+  );
+}
 
+const Child1 = () => {
+  const user1 = useContext(userGlobal);
   return (
     <>
-      <h1>{`The Count is ${Count}`}</h1>
-      <button onClick={Increment}>Increment</button>
-      <button onClick={Decrement}>Decrement</button>
-      <p>{Message}</p>
+      <h1>Child 1 Component {user1}</h1>
+      <Child2 />
+    </>
+  );
+}
+
+const Child2 = () => {
+  const user = useContext(userGlobal)
+  return (
+    <>
+      <h1>Child 2 Component {user}</h1>
     </>
   );
 }
