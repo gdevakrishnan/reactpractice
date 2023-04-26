@@ -1,34 +1,36 @@
-import { Component } from "react"
-import Table from "./Table";
-import Form from "./Form";
+import { useState } from "react";
 
-class App extends Component {
-    state = {
-        charachters: []
+export default function App() {
+  const [Count, setCount] = useState(0);
+  const [Message, setMessage] = useState("");
+  const Increment = () => {
+    if (Count < 10) {
+      setCount(Count + 1);
+    } else {
+      setMessage("The maximum count is 10")
+      setTimeout(() => {
+        setMessage("")
+      }, 3200);
     }
+  }
 
-    render() {
-        const { charachters } = this.state;
-
-        let removeCharachter = (i) => {
-            const filteredCharachters = charachters.filter((charachters, index) => {
-                return (i !== index);
-            });
-
-            this.setState({ charachters: filteredCharachters });
-        }
-
-        let getCharachter = (newChar) => {
-            this.setState({charachters: [...this.state.charachters, newChar]});
-        }
-
-        return (
-            <>
-                <Form getCharachter = { getCharachter }/>
-                <Table removeCharachter={removeCharachter} charachtersData={charachters} />
-            </>
-        )
+  const Decrement = () => {
+    if (Count > 0) {
+      setCount(Count - 1);
+    } else {
+      setMessage("The minimum count is 0")
+      setTimeout(() => {
+        setMessage("")
+      }, 3200);
     }
+  }
+
+  return (
+    <>
+      <h1>{`The Count is ${Count}`}</h1>
+      <button onClick={Increment}>Increment</button>
+      <button onClick={Decrement}>Decrement</button>
+      <p>{Message}</p>
+    </>
+  );
 }
-
-export default App;

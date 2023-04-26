@@ -14,12 +14,3 @@ body {
     background-color: cornsilk;
     overflow-x: hidden;
 }
-
-section {
-    height: auto;
-    min-height: 50vh;
-    padding-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
