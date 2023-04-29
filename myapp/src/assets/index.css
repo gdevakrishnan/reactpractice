@@ -151,7 +151,25 @@ body {
     font-weight: 700;
 }
 
-#root .todo_app .container .todo_container .todo_controls .edit_btn {background-color: var(--green_btn);}
-#root .todo_app .container .todo_container .todo_controls .delete_btn {background-color: var(--red_btn);}
-#root .todo_app .container .todo_container .todo_controls .completed_btn {background-color: var(--complete_btn);}
-#root .todo_app .container .todo_container .todo_controls .incomplete_btn {background-color: var(--incomplete_btn);}
+#root .todo_app .container .todo_container .todo_controls .edit_btn {
+    background-color: var(--green_btn);
+}
+
+#root .todo_app .container .todo_container .todo_controls .delete_btn {
+    background-color: var(--red_btn);
+}
+
+#root .todo_app .container .todo_container .todo_controls .completed_btn {
+    background-color: var(--complete_btn);
+}
+
+#root .todo_app .container .todo_container .todo_controls .incomplete_btn {
+    background-color: var(--incomplete_btn);
+}
+
+/* Responsive */
+@media screen and (max-width: 800px) {
+    #root .todo_app {
+        width: 90%;
+    }
+}
