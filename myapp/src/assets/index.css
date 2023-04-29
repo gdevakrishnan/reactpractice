@@ -1,16 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+
+:root {
+    --bg: #EFF5F5;
+    --main: #001233;
+    --sub1: #001845;
+    --sub2: #D6E4E5;
+    --text: #979dac;
+    --red_btn: #cc2936;
+    --green_btn: #388697;
+    --submit_btn: #9E0059;
+    --incomplete_btn: #F2A65A;
+    --complete_btn: #772F1A;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-html {
-    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
+    font-family: 'Ubuntu Mono', monospace;
 }
 
 body {
     width: 100vw;
     height: 100vh;
-    background-color: cornsilk;
+    background-color: var(--bg);
     overflow-x: hidden;
+    padding: 30px 0px;
 }
+
+.fa {
+    font-size: 18px;
+}
+
+#root {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#root .todo_app {
+    width: 40%;
+    height: auto;
+    min-height: 80vh;
+    background-color: var(--main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-bottom: 30px;
+}
+
+/* Title */
+#root .todo_app .todo_title {
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+/* Form */
+#root .todo_app .todo_form {
+    width: 90%;
+    height: auto;
+    background-color: var(--sub1);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#root .todo_app .todo_form input[type='text'] {
+    width: 60%;
+    padding: 5px 10px;
+    background-color: var(--main);
+    color: var(--sub2);
+    border: none;
+    outline: none;
+    font-size: 14px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+}
+
+#root .todo_app .todo_form input[type='submit'] {
+    border: none;
+    outline: none;
+    background-color: var(--submit_btn);
+    color: var(--sub2);
+    font-size: 12px;
+    padding: 5px 10px;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+}
+
+/* Todo Container */
+#root .todo_app .container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#root .todo_app .container .todo_container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+#root .todo_app .container .todo_container .todo {
+    width: 55%;
+    background-color: var(--sub1);
+    color: var(--sub2);
+    padding: 6px 20px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#root .todo_app .container .todo_container .completed_todo {
+    border: 2px solid var(--red_btn);
+    text-decoration: line-through;
+    text-decoration-color: var(--red_btn);
+    text-decoration-thickness: 3px;
+}
+
+#root .todo_app .container .todo_container .todo_controls {
+    width: auto;
+    display: flex;
+    gap: 2px;
+}
+
+#root .todo_app .container .todo_container .todo_controls .btn {
+    padding: 0px 10px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    color: var(--main);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#root .todo_app .container .todo_container .todo_controls .edit_btn {background-color: var(--green_btn);}
+#root .todo_app .container .todo_container .todo_controls .delete_btn {background-color: var(--red_btn);}
+#root .todo_app .container .todo_container .todo_controls .completed_btn {background-color: var(--complete_btn);}
+#root .todo_app .container .todo_container .todo_controls .incomplete_btn {background-color: var(--incomplete_btn);}
